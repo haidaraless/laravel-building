@@ -16,6 +16,7 @@ class ProjectServiceProvider extends PackageServiceProvider
             ->hasMigration('create_projects_table')
             ->hasMigration('create_floors_table')
             ->hasMigration('create_units_table')
+            ->hasMigration('create_spaces_table')
             ->hasCommand(ProjectCommand::class);
     }
 }

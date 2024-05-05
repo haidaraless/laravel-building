@@ -18,4 +18,9 @@ class Space extends Model
     {
         return $this->belongsTo(Floor::class);
     }
+
+    public function title(): BelongsTo
+    {
+        return $this->belongsTo(SpaceTitle::class);
+    }
 }

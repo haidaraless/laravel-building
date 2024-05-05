@@ -16,6 +16,11 @@ class Unit extends Model
         return $this->belongsTo(Project::class);
     }
 
+    public function title(): BelongsTo
+    {
+        return $this->belongsTo(UnitTitle::class);
+    }
+
     public function floors(): BelongsToMany
     {
         return $this->belongsToMany(Floor::class, 'floor_unit');

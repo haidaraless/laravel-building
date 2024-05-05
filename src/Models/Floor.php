@@ -19,6 +19,11 @@ class Floor extends Model
         return $this->belongsTo(Project::class);
     }
 
+    public function title(): BelongsTo
+    {
+        return $this->belongsTo(FloorTitle::class);
+    }
+
     public function units(): BelongsToMany
     {
         return $this->belongsToMany(Unit::class, 'floor_unit');

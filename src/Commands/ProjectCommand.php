@@ -6,7 +6,7 @@ use Illuminate\Console\Command;
 
 class ProjectCommand extends Command
 {
-    public $signature = 'laravel-building';
+    public $signature = 'laravel-project';
 
     public $description = 'My command';
 

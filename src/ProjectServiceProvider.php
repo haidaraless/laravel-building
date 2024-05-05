@@ -14,6 +14,8 @@ class ProjectServiceProvider extends PackageServiceProvider
             ->name('laravel-building')
             ->hasConfigFile()
             ->hasMigration('create_projects_table')
+            ->hasMigration('create_floors_table')
+            ->hasMigration('create_units_table')
             ->hasCommand(ProjectCommand::class);
     }
 }

@@ -25,4 +25,9 @@ class Unit extends Model
     {
         return $this->hasMany(Space::class);
     }
+
+    public static function getUnitNumber(int $projectId): int
+    {
+        return Unit::whereProjectId($projectId)->count() + 1;
+    }
 }

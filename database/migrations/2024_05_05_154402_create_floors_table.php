@@ -6,14 +6,19 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    public function up()
+    public function up(): void
     {
-        Schema::create('projects', function (Blueprint $table) {
+        Schema::create('floors', function (Blueprint $table) {
             $table->id();
-            $table->float('land_area');
             $table->integer('title_id');
-            $table->integer('type_id');
+            $table->foreignId('project_id')->constrained();
+            $table->integer('order');
             $table->timestamps();
         });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('floors');
     }
 };

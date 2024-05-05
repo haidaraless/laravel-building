@@ -7,13 +7,20 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Structure\Project\Actions\Project\CrudProject;
-use Structure\Project\Interfaces\HasTypeInterface;
-use Structure\Project\Traits\HasType;
+use Structure\Project\Traits\HasBuildingComponents;
+use Structure\Project\Traits\HasCommercialUnits;
+use Structure\Project\Traits\HasManagerialUnits;
+use Structure\Project\Traits\HasResidentialUnits;
+use Structure\Project\Traits\HasTypes;
 
-class Project extends Model implements HasTypeInterface
+class Project extends Model
 {
     use CrudProject;
-    use HasType;
+    use HasTypes;
+    use HasBuildingComponents;
+    use HasResidentialUnits;
+    use HasCommercialUnits;
+    use HasManagerialUnits;
 
     protected $guarded = [];
 

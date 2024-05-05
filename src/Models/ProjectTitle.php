@@ -11,10 +11,10 @@ class ProjectTitle extends Model
     use Sushi;
 
     protected $rows = [
-        ['id' => 1, 'title' => 'Private Villa', 'type' => 'residential'],
-        ['id' => 2, 'title' => 'Villa and Flats', 'type' => 'residential'],
-        ['id' => 3, 'title' => 'House and Flats', 'type' => 'residential'],
-        ['id' => 4, 'title' => 'Residential Flats', 'type' => 'residential'],
+        ['id' => 1, 'title' => 'Private Villa', 'slug' => 'private-villa', 'type' => 'residential'],
+        ['id' => 2, 'title' => 'Villa and Flats', 'slug' => 'villa-and-flats', 'type' => 'residential'],
+        ['id' => 3, 'title' => 'House and Flats', 'slug' => 'house-and-flats', 'type' => 'residential'],
+        ['id' => 4, 'title' => 'Residential Flats', 'slug' => 'flats', 'type' => 'residential'],
     ];
 
     public static function privateVilla(): ProjectTitle

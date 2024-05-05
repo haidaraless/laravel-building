@@ -3,18 +3,28 @@
 namespace Structure\Project\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Sushi\Sushi;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class SpaceTitle extends Model
 {
-    use Sushi;
+    protected $guarded = [];
 
-    protected $rows = [
-        ['id' => 1, 'title' => 'Living room', 'type' => 'residential'],
-        ['id' => 2, 'title' => 'Master bedroom', 'type' => 'residential'],
-        ['id' => 3, 'title' => 'Kids bedroom', 'type' => 'residential'],
-        ['id' => 4, 'title' => 'Playing room', 'type' => 'residential'],
-        ['id' => 5, 'title' => 'Men room', 'type' => 'residential'],
-        ['id' => 6, 'title' => 'Women room', 'type' => 'residential'],
-    ];
+    public function type(): BelongsTo
+    {
+        return $this->belongsTo(ProjectType::class, 'type_id');
+    }
+
+    public static function findByNameOfCreate(string $name, int $typeId): SpaceTitle
+    {
+        $title = SpaceTitle::whereName($name)->whereTypeId($typeId)->first();
+
+        if (is_null($title)) {
+            $title  = SpaceTitle::create([
+                'name' => $name,
+                'type_id' => $typeId
+            ]);
+        }
+
+        return $title;
+    }
 }

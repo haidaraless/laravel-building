@@ -10,6 +10,7 @@ return new class extends Migration {
         Schema::create('floor_unit', function (Blueprint $table) {
             $table->foreignId('floor_id')->constrained();
             $table->foreignId('unit_id')->constrained();
+            $table->primary(['floor_id', 'unit_id']);
         });
     }
 

@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Structure\Project\Actions\Floor\CrudFloor;
+use Structure\Project\Traits\HasTitles;
 
 class Floor extends Model
 {
     use CrudFloor;
+    use HasTitles;
 
     protected $guarded = [];
 

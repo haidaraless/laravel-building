@@ -20,17 +20,21 @@ trait CrudProject
         }
 
         // Get the project type
-        $projectType = ProjectType::whereType($type)->first();
+        $projectType = ProjectType::whereSlug($type)->first();
 
         // If project type is not exists, then throw an exception
         if (is_null($projectType)) {
             throw ProjectException::typeNotExist();
         }
 
-        return Project::create([
+        $project = Project::create([
             'land_area' => $land_area,
             'title_id' => $projectTitle->id,
             'type_id' => $projectType->id,
         ]);
+
+        $project->prepareBuildingComponents();
+
+        return $project;
     }
 }

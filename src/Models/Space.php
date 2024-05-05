@@ -21,6 +21,6 @@ class Space extends Model
 
     public function title(): BelongsTo
     {
-        return $this->belongsTo(SpaceTitle::class);
+        return $this->belongsTo(SpaceTitle::class, 'title_id');
     }
 }

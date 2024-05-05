@@ -2,6 +2,7 @@
 
 namespace Structure\Project\Traits;
 
-trait HasType
+trait HasCommercialUnits
 {
+
 }

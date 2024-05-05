@@ -2,7 +2,7 @@
 
 namespace Structure\Project\Enums;
 
-enum ProjectTitleEnum : string
+enum ProjectTitleEnum: string
 {
     case PRIVATE_VILLA = 'private_villa';
     case VILLA_AND_FLATS = 'villa_and_flats';

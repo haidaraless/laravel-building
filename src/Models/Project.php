@@ -11,8 +11,8 @@ use Structure\Project\Traits\HasType;
 
 class Project extends Model implements HasTypeInterface
 {
-    use HasType;
     use CreateProject;
+    use HasType;
 
     protected $guarded = [];
 

@@ -2,7 +2,7 @@
 
 namespace Structure\Project\Enums;
 
-enum ProjectTypeEnum : int
+enum ProjectTypeEnum: int
 {
     case RESIDENTIAL = 1;
     case COMMERCIAL = 2;

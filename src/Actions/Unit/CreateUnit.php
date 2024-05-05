@@ -12,7 +12,7 @@ trait CreateUnit
         return Unit::create([
             'project_id' => $projectId,
             'title_id' => UnitTitle::${$title}->id,
-            'number' => Unit::getUnitNumber($projectId)
+            'number' => Unit::getUnitNumber($projectId),
         ]);
     }
 }

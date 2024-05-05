@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Structure\Project\Actions\Project\CreateProject;
 use Structure\Project\Interfaces\HasTypeInterface;
 use Structure\Project\Traits\HasType;
-use Sushi\Sushi;
 
 class Project extends Model implements HasTypeInterface
 {

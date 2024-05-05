@@ -9,11 +9,11 @@ class ProjectException extends BaseException
 {
     public static function titleNotExist(): UnitException
     {
-        return new static("This project title is not exists!");
+        return new static('This project title is not exists!');
     }
 
     public static function typeNotExist(): UnitException
     {
-        return new static("This project type is not exists!");
+        return new static('This project type is not exists!');
     }
 }

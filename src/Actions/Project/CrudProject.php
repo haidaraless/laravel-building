@@ -11,18 +11,18 @@ trait CrudProject
 {
     public static function createProject(float $land_area, string $title, string $type): Project
     {
-        # Get the project title
+        // Get the project title
         $projectTitle = ProjectTitle::whereTitle($title)->first();
 
-        # If project title is not exists, then throw an exception
+        // If project title is not exists, then throw an exception
         if (is_null($projectTitle)) {
             throw ProjectException::titleNotExist();
         }
 
-        # Get the project type
+        // Get the project type
         $projectType = ProjectType::whereType($type)->first();
 
-        # If project type is not exists, then throw an exception
+        // If project type is not exists, then throw an exception
         if (is_null($projectType)) {
             throw ProjectException::typeNotExist();
         }

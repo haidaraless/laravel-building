@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
-use Structure\Project\Actions\Project\CreateProject;
+use Structure\Project\Actions\Project\CrudProject;
 use Structure\Project\Interfaces\HasTypeInterface;
 use Structure\Project\Traits\HasType;
 
 class Project extends Model implements HasTypeInterface
 {
-    use CreateProject;
+    use CrudProject;
     use HasType;
 
     protected $guarded = [];

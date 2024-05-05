@@ -16,11 +16,11 @@ use Structure\Project\Traits\HasTypes;
 class Project extends Model
 {
     use CrudProject;
-    use HasTypes;
     use HasBuildingComponents;
-    use HasResidentialUnits;
     use HasCommercialUnits;
     use HasManagerialUnits;
+    use HasResidentialUnits;
+    use HasTypes;
 
     protected $guarded = [];
 

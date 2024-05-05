@@ -19,9 +19,9 @@ class SpaceTitle extends Model
         $title = SpaceTitle::whereName($name)->whereTypeId($typeId)->first();
 
         if (is_null($title)) {
-            $title  = SpaceTitle::create([
+            $title = SpaceTitle::create([
                 'name' => $name,
-                'type_id' => $typeId
+                'type_id' => $typeId,
             ]);
         }
 

@@ -36,7 +36,7 @@ trait HasResidentialUnits
         $roof_deck_spaces = ['جلسة مكشوفة', 'مستودع', 'غرفة غسيل', 'دورة مياه'];
 
         $unit = $this->units()->create([
-            'title_id' => UnitTitle::whereTitle('Villa')->first()->id
+            'title_id' => UnitTitle::whereTitle('Villa')->first()->id,
         ]);
 
         $floors = Floor::with('title')->whereProjectId($this->id)->get();
@@ -65,7 +65,7 @@ trait HasResidentialUnits
 
         $unit = Unit::create([
             'project_id' => $this->id,
-            'title_id' => UnitTitle::whereTitle('Flat')->first()->id
+            'title_id' => UnitTitle::whereTitle('Flat')->first()->id,
         ]);
 
         $floor->units()->attach($unit);
@@ -75,7 +75,7 @@ trait HasResidentialUnits
 
             $unit->spaces()->create([
                 'title_id' => $titleId,
-                'floor_id' => $floor->id
+                'floor_id' => $floor->id,
             ]);
         }
     }
@@ -89,6 +89,7 @@ trait HasResidentialUnits
         foreach ($floors as $floor) {
             if ($floor->isRoofDeck()) {
                 $this->flat($floor);
+
                 return;
             }
 
@@ -117,6 +118,7 @@ trait HasResidentialUnits
         foreach ($floors as $floor) {
             if ($floor->isRoofDeck()) {
                 $this->flat($floor);
+
                 return;
             }
 
@@ -134,7 +136,7 @@ trait HasResidentialUnits
 
             $floor->spaces()->create([
                 'title_id' => $titleId,
-                'unit_id' => $unitId
+                'unit_id' => $unitId,
             ]);
         }
     }

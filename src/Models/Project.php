@@ -13,8 +13,8 @@ use Sushi\Sushi;
 
 class Project extends Model implements HasTypeInterface
 {
-    use HasType;
     use CreateProject;
+    use HasType;
 
     protected $guarded = [];
 

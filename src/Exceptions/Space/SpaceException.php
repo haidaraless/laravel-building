@@ -2,7 +2,6 @@
 
 namespace Structure\Project\Exceptions\Space;
 
-use Exception;
 use Structure\Project\Exceptions\BaseException;
 
 class SpaceException extends BaseException

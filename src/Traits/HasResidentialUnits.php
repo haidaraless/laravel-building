@@ -2,7 +2,6 @@
 
 namespace Structure\Project\Traits;
 
-use Illuminate\Support\Str;
 use Structure\Project\Models\Floor;
 use Structure\Project\Models\Space;
 use Structure\Project\Models\Unit;
@@ -102,6 +101,7 @@ trait HasResidentialUnits
 
             if ($floor->isRoofDeck()) {
                 $this->flat($floor);
+
                 return;
             }
 

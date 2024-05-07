@@ -3,17 +3,14 @@
 namespace Structure\Project\Actions\Unit;
 
 use Structure\Project\Exceptions\Unit\UnitException;
-use Structure\Project\Models\Project;
+use Structure\Project\Models\Floor;
 use Structure\Project\Models\Unit;
 use Structure\Project\Models\UnitTitle;
 
 trait CrudUnit
 {
-    public static function add(string $title, int $projectId): void
+    public static function add(string $title, int $projectId): Unit
     {
-        // Find the project wants to add unit to it
-        $project = Project::find($projectId);
-
         // Get the unit title
         $unitTitle = UnitTitle::whereTitle($title)->first();
 
@@ -28,21 +25,34 @@ trait CrudUnit
         }
 
         // Add unit to project
-        $project->units()->create([
+        return Unit::create([
+            'project_id' => $projectId,
             'title_id' => $unitTitle->id,
             'order' => $unitTitle->order,
         ]);
     }
 
+    public static function addUnitToFloor(int $unitId, int $floorId): void
+    {
+        $unit = Unit::findById($unitId);
+
+        $floor = Floor::findById($floorId);
+
+        $unit->floors()->attach($floor->id);
+    }
+
+    public static function removeUnitFromFloor(int $unitId, int $floorId): void
+    {
+        $unit = Unit::findById($unitId);
+
+        $floor = Floor::findById($floorId);
+
+        $unit->floors()->detach($floor->id);
+    }
+
     public static function destroy(int $unitId): void
     {
-        // Find unit
-        $unit = Unit::with('spaces')->find($unitId);
-
-        // If the unit is not exists then throw an exception
-        if (is_null($unit)) {
-            throw UnitException::unitNotExist();
-        }
+        $unit = Unit::findById($unitId);
 
         // Delete its spaces if exists
         if ($unit->spaces->count() > 0) {
@@ -51,7 +61,17 @@ trait CrudUnit
             }
         }
 
-        // Then delete it
         $unit->delete();
+    }
+
+    public static function findById(int $unitId): Unit
+    {
+        $unit = Unit::find($unitId);
+
+        if (is_null($unit)) {
+            throw UnitException::unitNotExist();
+        }
+
+        return $unit;
     }
 }

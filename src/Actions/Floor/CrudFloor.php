@@ -5,15 +5,11 @@ namespace Structure\Project\Actions\Floor;
 use Structure\Project\Exceptions\Floor\FloorException;
 use Structure\Project\Models\Floor;
 use Structure\Project\Models\FloorTitle;
-use Structure\Project\Models\Project;
 
 trait CrudFloor
 {
-    public static function add(string $title, int $projectId): void
+    public static function add(string $title, int $projectId): Floor
     {
-        // Find the project wants to add floor to it
-        $project = Project::find($projectId);
-
         // Get the floor title
         $floorTitle = FloorTitle::whereTitle($title)->first();
 
@@ -28,7 +24,8 @@ trait CrudFloor
         }
 
         // Add floor to project
-        $project->floors()->create([
+        return Floor::create([
+            'project_id' => $projectId,
             'title_id' => $floorTitle->id,
             'order' => $floorTitle->order,
         ]);
@@ -36,13 +33,7 @@ trait CrudFloor
 
     public static function destroy(int $floorId): void
     {
-        // Find floor
-        $floor = Floor::with('spaces')->find($floorId);
-
-        // If the floor is not exists then throw an exception
-        if (is_null($floor)) {
-            throw FloorException::floorNotExist();
-        }
+        $floor = Floor::findById($floorId);
 
         // Delete its spaces if exists
         if ($floor->spaces->count() > 0) {
@@ -51,7 +42,32 @@ trait CrudFloor
             }
         }
 
-        // Then delete it
         $floor->delete();
+    }
+
+    public static function findById(int $floorId): Floor
+    {
+        $floor = Floor::find($floorId);
+
+        if (is_null($floor)) {
+            throw FloorException::floorNotExist();
+        }
+
+        return $floor;
+    }
+
+    public static function findByTitle(int $projectId, string $title): ?Floor
+    {
+        return Floor::whereProjectId($projectId)->whereTitleId(FloorTitle::findBySlug($title)->id)->first();
+    }
+
+    public static function getAllFloors(int $projectId): array
+    {
+        return Floor::with('title')->whereProjectId($projectId)->get();
+    }
+
+    public static function getFloorsExcept(int $projectId, string $title)
+    {
+        return Floor::whereProjectId($projectId)->where('title_id', '!=', FloorTitle::findBySlug($title)->id)->get();
     }
 }

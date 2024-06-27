@@ -4,9 +4,9 @@ namespace Structure\Project\Commands;
 
 use Illuminate\Console\Command;
 
-class ProjectCommand extends Command
+class BuildingCommand extends Command
 {
-    public $signature = 'laravel-project';
+    public $signature = 'building:run';
 
     public $description = 'My command';
 

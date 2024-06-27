@@ -8,7 +8,7 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('projects', function (Blueprint $table) {
+        Schema::create('buildings', function (Blueprint $table) {
             $table->id();
             $table->float('land_area');
             $table->integer('title_id');

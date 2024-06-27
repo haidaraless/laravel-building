@@ -5,12 +5,12 @@ namespace Structure\Project\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Structure\Project\Project
+ * @see \Structure\Project\Building
  */
-class Project extends Facade
+class Building extends Facade
 {
     protected static function getFacadeAccessor(): string
     {
-        return \Structure\Project\Project::class;
+        return \Structure\Project\Building::class;
     }
 }

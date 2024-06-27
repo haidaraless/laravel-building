@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Console\Command;
-use Structure\Project\Commands\ProjectCommand;
+use Structure\Project\Commands\BuildingCommand;
 
 use function Pest\Laravel\artisan;
 
 it('can test', function () {
-    artisan(ProjectCommand::class)->assertExitCode(Command::SUCCESS);
+    artisan(BuildingCommand::class)->assertExitCode(Command::SUCCESS);
 });

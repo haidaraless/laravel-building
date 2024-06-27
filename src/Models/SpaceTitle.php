@@ -11,7 +11,7 @@ class SpaceTitle extends Model
 
     public function type(): BelongsTo
     {
-        return $this->belongsTo(ProjectType::class, 'type_id');
+        return $this->belongsTo(BuildingType::class, 'type_id');
     }
 
     public static function findByNameOfCreate(string $name, int $typeId): SpaceTitle

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Sushi\Sushi;
 
-class ProjectTitle extends Model
+class BuildingTitle extends Model
 {
     use Sushi;
 
@@ -17,24 +17,24 @@ class ProjectTitle extends Model
         ['id' => 4, 'title' => 'Residential Flats', 'slug' => 'flats', 'type' => 'residential'],
     ];
 
-    public static function privateVilla(): ProjectTitle
+    public static function privateVilla(): BuildingTitle
     {
-        return ProjectTitle::query()->whereTitle('Private Villa')->first();
+        return BuildingTitle::query()->whereTitle('Private Villa')->first();
     }
 
-    public static function villaAndFlats(): ProjectTitle
+    public static function villaAndFlats(): BuildingTitle
     {
-        return ProjectTitle::query()->whereTitle('Villa and Flats')->first();
+        return BuildingTitle::query()->whereTitle('Villa and Flats')->first();
     }
 
-    public static function houseAndFlats(): ProjectTitle
+    public static function houseAndFlats(): BuildingTitle
     {
-        return ProjectTitle::query()->whereTitle('House and Flats')->first();
+        return BuildingTitle::query()->whereTitle('House and Flats')->first();
     }
 
-    public static function residentialFlats(): ProjectTitle
+    public static function residentialFlats(): BuildingTitle
     {
-        return ProjectTitle::query()->whereTitle('Residential Flats')->first();
+        return BuildingTitle::query()->whereTitle('Residential Flats')->first();
     }
 
     public function scopeResidential(Builder $query): void

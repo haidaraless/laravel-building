@@ -73,10 +73,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Structure\\Project\\ProjectServiceProvider"
+              "BuildingServiceProvider"
             ],
             "aliases": {
-                "Project": "Structure\\Project\\Facades\\Project"
+                "Project": "Building"
             }
         }
     },

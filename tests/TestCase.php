@@ -4,7 +4,7 @@ namespace Structure\Project\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Structure\Project\ProjectServiceProvider;
+use Structure\Project\BuildingServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -13,14 +13,14 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Structure\\Project\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'Structure\\Building\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
     }
 
     protected function getPackageProviders($app)
     {
         return [
-            ProjectServiceProvider::class,
+            BuildingServiceProvider::class,
         ];
     }
 

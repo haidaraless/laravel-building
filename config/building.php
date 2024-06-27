@@ -1,6 +1,6 @@
 <?php
 
-// config for Structure/Project
+// config for Structure/Building
 return [
 
 ];

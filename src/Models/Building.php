@@ -6,16 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
-use Structure\Project\Actions\Project\CrudProject;
+use Structure\Project\Actions\Building\CrudBuilding;
 use Structure\Project\Traits\HasBuildingComponents;
 use Structure\Project\Traits\HasCommercialUnits;
 use Structure\Project\Traits\HasManagerialUnits;
 use Structure\Project\Traits\HasResidentialUnits;
 use Structure\Project\Traits\HasTypes;
 
-class Project extends Model
+class Building extends Model
 {
-    use CrudProject;
+    use CrudBuilding;
     use HasBuildingComponents;
     use HasCommercialUnits;
     use HasManagerialUnits;
@@ -26,12 +26,12 @@ class Project extends Model
 
     public function title(): BelongsTo
     {
-        return $this->belongsTo(ProjectTitle::class, 'title_id');
+        return $this->belongsTo(BuildingTitle::class, 'title_id');
     }
 
     public function type(): BelongsTo
     {
-        return $this->belongsTo(ProjectType::class, 'type_id');
+        return $this->belongsTo(BuildingType::class, 'type_id');
     }
 
     public function floors(): HasMany

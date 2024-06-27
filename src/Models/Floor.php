@@ -18,7 +18,7 @@ class Floor extends Model
 
     public function project(): BelongsTo
     {
-        return $this->belongsTo(Project::class);
+        return $this->belongsTo(Building::class);
     }
 
     public function title(): BelongsTo

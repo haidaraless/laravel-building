@@ -1,18 +1,18 @@
 <?php
 
-namespace Structure\Project\Exceptions\Project;
+namespace Structure\Project\Exceptions\Building;
 
 use Structure\Project\Exceptions\BaseException;
 use Structure\Project\Exceptions\Unit\UnitException;
 
-class ProjectException extends BaseException
+class BuildingException extends BaseException
 {
-    public static function titleNotExist(): UnitException
+    public static function titleNotExist(): BuildingException
     {
         return new static('This project title is not exists!');
     }
 
-    public static function typeNotExist(): UnitException
+    public static function typeNotExist(): BuildingException
     {
         return new static('This project type is not exists!');
     }

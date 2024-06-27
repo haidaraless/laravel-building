@@ -26,14 +26,14 @@ composer require structure/laravel-building
 You can publish and run the migrations with:
 
 ```bash
-php artisan vendor:publish --tag="laravel-building-migrations"
+php artisan vendor:publish --tag="building-migrations"
 php artisan migrate
 ```
 
 You can publish the config file with:
 
 ```bash
-php artisan vendor:publish --tag="laravel-building-config"
+php artisan vendor:publish --tag="building-config"
 ```
 
 This is the contents of the published config file:

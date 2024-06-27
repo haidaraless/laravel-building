@@ -2,6 +2,4 @@
 
 namespace Structure\Project\Traits;
 
-trait HasManagerialUnits
-{
-}
+trait HasManagerialUnits {}

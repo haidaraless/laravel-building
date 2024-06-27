@@ -3,7 +3,6 @@
 namespace Structure\Project\Exceptions\Building;
 
 use Structure\Project\Exceptions\BaseException;
-use Structure\Project\Exceptions\Unit\UnitException;
 
 class BuildingException extends BaseException
 {

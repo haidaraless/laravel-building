@@ -1,12 +1,12 @@
 {
-    "name": "structure/laravel-building",
+    "name": "haidarhalessa/laravel-building",
     "description": "A package to handle project and its  components in construction field creation.",
     "keywords": [
         "structure",
         "laravel",
         "laravel-building"
     ],
-    "homepage": "https://github.com/structure/laravel-building",
+    "homepage": "https://github.com/haidarhalessa/laravel-building",
     "license": "MIT",
     "authors": [
         {

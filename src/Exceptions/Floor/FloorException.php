@@ -3,7 +3,6 @@
 namespace Structure\Project\Exceptions\Floor;
 
 use Structure\Project\Exceptions\BaseException;
-use Structure\Project\Exceptions\Unit\UnitException;
 
 final class FloorException extends BaseException
 {

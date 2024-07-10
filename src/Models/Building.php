@@ -10,8 +10,8 @@ use Structure\Project\Actions\Building\CrudBuilding;
 use Structure\Project\Interfaces\Building\InteractsWithComponents;
 use Structure\Project\Interfaces\Building\InteractsWithResidentialUnits;
 use Structure\Project\Interfaces\Building\InteractsWithType;
-use Structure\Project\Traits\Building\HasComponents;
 use Structure\Project\Traits\Building\HasCommercialUnits;
+use Structure\Project\Traits\Building\HasComponents;
 use Structure\Project\Traits\Building\HasManagerialUnits;
 use Structure\Project\Traits\Building\HasResidentialUnits;
 use Structure\Project\Traits\Building\HasType;
@@ -19,8 +19,8 @@ use Structure\Project\Traits\Building\HasType;
 class Building extends Model implements InteractsWithComponents, InteractsWithResidentialUnits, InteractsWithType
 {
     use CrudBuilding;
-    use HasComponents;
     use HasCommercialUnits;
+    use HasComponents;
     use HasManagerialUnits;
     use HasResidentialUnits;
     use HasType;

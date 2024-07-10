@@ -19,22 +19,22 @@ class BuildingTitle extends Model
 
     public static function privateVilla(): BuildingTitle
     {
-        return BuildingTitle::query()->where('title','Private Villa')->first();
+        return BuildingTitle::query()->where('title', 'Private Villa')->first();
     }
 
     public static function villaAndFlats(): BuildingTitle
     {
-        return BuildingTitle::query()->where('title','Villa and Flats')->first();
+        return BuildingTitle::query()->where('title', 'Villa and Flats')->first();
     }
 
     public static function houseAndFlats(): BuildingTitle
     {
-        return BuildingTitle::query()->where('title','House and Flats')->first();
+        return BuildingTitle::query()->where('title', 'House and Flats')->first();
     }
 
     public static function residentialFlats(): BuildingTitle
     {
-        return BuildingTitle::query()->where('title','Residential Flats')->first();
+        return BuildingTitle::query()->where('title', 'Residential Flats')->first();
     }
 
     public function scopeResidential(Builder $query): void

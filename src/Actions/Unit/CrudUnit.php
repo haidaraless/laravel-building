@@ -50,7 +50,7 @@ trait CrudUnit
         $unit->floors()->detach($floor->id);
     }
 
-    public static function destroy(int $unitId): void
+    public static function remove(int $unitId): void
     {
         $unit = Unit::findById($unitId);
 

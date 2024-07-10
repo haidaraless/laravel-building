@@ -31,7 +31,7 @@ trait CrudFloor
         ]);
     }
 
-    public static function destroy(int $floorId): void
+    public static function remove(int $floorId): void
     {
         $floor = Floor::findById($floorId);
 

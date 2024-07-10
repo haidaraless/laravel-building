@@ -19,7 +19,7 @@ trait CrudSpace
         ]);
     }
 
-    public static function destroy(int $spaceId): void
+    public static function remove(int $spaceId): void
     {
         $space = Space::findById($spaceId);
 

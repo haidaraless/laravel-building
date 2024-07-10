@@ -2,6 +2,4 @@
 
 namespace Structure\Project\Exceptions;
 
-abstract class BaseException extends \Exception
-{
-}
+abstract class BaseException extends \Exception {}

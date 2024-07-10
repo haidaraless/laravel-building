@@ -2,7 +2,6 @@
 
 namespace Structure\Project\Interfaces\Building;
 
-use Illuminate\Database\Eloquent\Collection;
 use Structure\Project\Models\Floor;
 
 interface InteractsWithResidentialUnits

@@ -7,20 +7,23 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Structure\Project\Actions\Building\CrudBuilding;
-use Structure\Project\Traits\HasBuildingComponents;
-use Structure\Project\Traits\HasCommercialUnits;
-use Structure\Project\Traits\HasManagerialUnits;
-use Structure\Project\Traits\HasResidentialUnits;
-use Structure\Project\Traits\HasTypes;
+use Structure\Project\Interfaces\Building\InteractsWithComponents;
+use Structure\Project\Interfaces\Building\InteractsWithResidentialUnits;
+use Structure\Project\Interfaces\Building\InteractsWithType;
+use Structure\Project\Traits\Building\HasBuildingComponents;
+use Structure\Project\Traits\Building\HasCommercialUnits;
+use Structure\Project\Traits\Building\HasManagerialUnits;
+use Structure\Project\Traits\Building\HasResidentialUnits;
+use Structure\Project\Traits\Building\HasType;
 
-class Building extends Model
+class Building extends Model implements InteractsWithComponents, InteractsWithResidentialUnits, InteractsWithType
 {
     use CrudBuilding;
     use HasBuildingComponents;
     use HasCommercialUnits;
     use HasManagerialUnits;
     use HasResidentialUnits;
-    use HasTypes;
+    use HasType;
 
     protected $guarded = [];
 

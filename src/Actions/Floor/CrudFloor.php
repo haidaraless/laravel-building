@@ -8,7 +8,7 @@ use Structure\Project\Models\FloorTitle;
 
 trait CrudFloor
 {
-    public static function add(string $title, int $projectId): Floor
+    public static function add(string $title, int $buildingId): Floor
     {
         // Get the floor title
         $floorTitle = FloorTitle::whereTitle($title)->first();
@@ -19,13 +19,13 @@ trait CrudFloor
         }
 
         // If the floor already exists, then throw an exception
-        if (Floor::whereProjectId($projectId)->whereTitleId($floorTitle->id)->exists()) {
+        if (Floor::whereBuildingId($buildingId)->whereTitleId($floorTitle->id)->exists()) {
             throw FloorException::floorExists();
         }
 
-        // Add floor to project
+        // Add floor to building
         return Floor::create([
-            'project_id' => $projectId,
+            'building_id' => $buildingId,
             'title_id' => $floorTitle->id,
             'order' => $floorTitle->order,
         ]);
@@ -56,18 +56,18 @@ trait CrudFloor
         return $floor;
     }
 
-    public static function findByTitle(int $projectId, string $title): ?Floor
+    public static function findByTitle(int $buildingId, string $title): ?Floor
     {
-        return Floor::whereProjectId($projectId)->whereTitleId(FloorTitle::findBySlug($title)->id)->first();
+        return Floor::whereBuildingId($buildingId)->whereTitleId(FloorTitle::findBySlug($title)->id)->first();
     }
 
-    public static function getAllFloors(int $projectId): array
+    public static function getAllFloors(int $buildingId): array
     {
-        return Floor::with('title')->whereProjectId($projectId)->get();
+        return Floor::with('title')->whereBuildingId($buildingId)->get();
     }
 
-    public static function getFloorsExcept(int $projectId, string $title)
+    public static function getFloorsExcept(int $buildingId, string $title)
     {
-        return Floor::whereProjectId($projectId)->where('title_id', '!=', FloorTitle::findBySlug($title)->id)->get();
+        return Floor::whereBuildingId($buildingId)->where('title_id', '!=', FloorTitle::findBySlug($title)->id)->get();
     }
 }

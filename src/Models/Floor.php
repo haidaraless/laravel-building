@@ -7,16 +7,17 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Structure\Project\Actions\Floor\CrudFloor;
-use Structure\Project\Traits\HasTitles;
+use Structure\Project\Interfaces\Floor\InteractsWithTitle;
+use Structure\Project\Traits\Floor\HasTitle;
 
-class Floor extends Model
+class Floor extends Model implements InteractsWithTitle
 {
     use CrudFloor;
-    use HasTitles;
+    use HasTitle;
 
     protected $guarded = [];
 
-    public function project(): BelongsTo
+    public function building(): BelongsTo
     {
         return $this->belongsTo(Building::class);
     }

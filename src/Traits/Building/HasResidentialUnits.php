@@ -1,6 +1,6 @@
 <?php
 
-namespace Structure\Project\Traits;
+namespace Structure\Project\Traits\Building;
 
 use Structure\Project\Models\Floor;
 use Structure\Project\Models\Space;
@@ -8,12 +8,12 @@ use Structure\Project\Models\Unit;
 
 trait HasResidentialUnits
 {
-    protected function private_villa(): void
+    public function private_villa(): void
     {
         $this->villa();
     }
 
-    protected function villa(): void
+    public function villa(): void
     {
         $unit = Unit::add('Villa', $this->id);
 
@@ -22,7 +22,7 @@ trait HasResidentialUnits
         $this->createVilla($floors, $unit->id);
     }
 
-    protected function villa_and_flats(): void
+    public function villa_and_flats(): void
     {
         $this->villa();
 
@@ -31,7 +31,7 @@ trait HasResidentialUnits
         $this->createFlat($floors);
     }
 
-    protected function flat(Floor $floor): void
+    public function flat(Floor $floor): void
     {
         $flat_spaces = ['صالة معيشة', 'مجلس رجال', 'مطبخ', 'دورة مياه', 'غرفة النوم الرئيسية', 'غرفة نوم'];
 
@@ -42,7 +42,7 @@ trait HasResidentialUnits
         $this->createSpaces($flat_spaces, $this->type->id, $floor->id, $unit->id);
     }
 
-    protected function house_and_flats(): void
+    public function house_and_flats(): void
     {
         $this->house();
 
@@ -51,7 +51,7 @@ trait HasResidentialUnits
         $this->createFlats($floors);
     }
 
-    protected function house(): void
+    public function house(): void
     {
         $ground_floor_spaces = ['صالة معيشة', 'مجلس رجال', 'مجلس نساء', 'مطبخ', 'حديقة', 'مستودع', 'دورة مياه', 'غرفة النوم الرئيسية', 'غرفة نوم', 'غرفة نوم', 'حمام مشترك', 'درج الشقق'];
 
@@ -64,14 +64,14 @@ trait HasResidentialUnits
         $this->createSpaces($ground_floor_spaces, $this->type->id, $floor->id, $unit->id);
     }
 
-    protected function flats(): void
+    public function flats(): void
     {
         $floors = Floor::getAllFloors($this->id);
 
         $this->createFlats($floors);
     }
 
-    protected function createVilla(array $floors, int $unitId): void
+    public function createVilla(array $floors, int $unitId): void
     {
         // $array_name
         $ground_floor_spaces = ['صالة معيشة', 'مجلس رجال', 'مجلس نساء', 'مطبخ', 'حديقة', 'مصعد', 'درج فيلا', 'درج خدمة', 'مستودع', 'دورة مياه'];
@@ -88,14 +88,14 @@ trait HasResidentialUnits
         }
     }
 
-    protected function createFlat(array $floors): void
+    public function createFlat(array $floors): void
     {
         foreach ($floors as $floor) {
             $this->flat($floor);
         }
     }
 
-    protected function createFlats(array $floors): void
+    public function createFlats(array $floors): void
     {
         foreach ($floors as $floor) {
 
@@ -110,7 +110,7 @@ trait HasResidentialUnits
         }
     }
 
-    protected function createSpaces(array $spaces, int $typeId, int $floorId, int $unitId): void
+    public function createSpaces(array $spaces, int $typeId, int $floorId, int $unitId): void
     {
         foreach ($spaces as $space) {
             Space::add($space, $typeId, $floorId, $unitId);

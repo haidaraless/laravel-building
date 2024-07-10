@@ -14,7 +14,7 @@ class Unit extends Model
 
     protected $guarded = [];
 
-    public function project(): BelongsTo
+    public function building(): BelongsTo
     {
         return $this->belongsTo(Building::class);
     }
@@ -34,8 +34,8 @@ class Unit extends Model
         return $this->hasMany(Space::class);
     }
 
-    public static function getUnitNumber(int $projectId): int
+    public static function getUnitNumber(int $buildingId): int
     {
-        return Unit::whereProjectId($projectId)->count() + 1;
+        return Unit::whereBuildingId($buildingId)->count() + 1;
     }
 }

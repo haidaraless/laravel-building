@@ -1,8 +1,8 @@
 <?php
 
-namespace Structure\Project\Traits;
+namespace Structure\Project\Traits\Floor;
 
-trait HasTitles
+trait HasTitle
 {
     public function isGroundFloor(): bool
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Structure\Project\Traits;
+namespace Structure\Project\Traits\Building;
 
 use Illuminate\Support\Str;
 
@@ -20,7 +20,7 @@ trait HasBuildingComponents
         $this::{$method_name}();
     }
 
-    protected static function method($slug): string
+    public static function method($slug): string
     {
         return Str::replace('-', '_', $slug);
     }

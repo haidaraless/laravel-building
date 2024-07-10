@@ -1,9 +1,19 @@
 <?php
 
-namespace Structure\Project\Traits;
+namespace Structure\Project\Traits\Building;
 
-trait HasTypes
+trait HasType
 {
+    public function getTypeName(): string
+    {
+        return $this->type->name;
+    }
+
+    public function getTypeSlug(): string
+    {
+        return $this->type->slug;
+    }
+
     public function isResidential(): bool
     {
         return $this->type->slug == 'residential';

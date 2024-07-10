@@ -9,7 +9,7 @@ use Structure\Project\Models\UnitTitle;
 
 trait CrudUnit
 {
-    public static function add(string $title, int $projectId): Unit
+    public static function add(string $title, int $buildingId): Unit
     {
         // Get the unit title
         $unitTitle = UnitTitle::whereTitle($title)->first();
@@ -20,13 +20,13 @@ trait CrudUnit
         }
 
         // If the unit already exists, then throw an exception
-        if (Unit::whereProjectId($projectId)->whereTitleId($unitTitle->id)->exists()) {
+        if (Unit::whereBuildingId($buildingId)->whereTitleId($unitTitle->id)->exists()) {
             throw UnitException::unitExists();
         }
 
-        // Add unit to project
+        // Add unit to building
         return Unit::create([
-            'project_id' => $projectId,
+            'building_id' => $buildingId,
             'title_id' => $unitTitle->id,
             'order' => $unitTitle->order,
         ]);

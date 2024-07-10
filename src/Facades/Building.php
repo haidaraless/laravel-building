@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\Facade;
  */
 class Building extends Facade
 {
-//    protected static function getFacadeAccessor(): string
-//    {
-//        return \Structure\Project\Building::class;
-//    }
+    //    protected static function getFacadeAccessor(): string
+    //    {
+    //        return \Structure\Project\Building::class;
+    //    }
 }

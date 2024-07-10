@@ -2,6 +2,4 @@
 
 namespace Structure\Project\Traits\Building;
 
-trait HasCommercialUnits
-{
-}
+trait HasCommercialUnits {}

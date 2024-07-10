@@ -2,7 +2,6 @@
 
 namespace Structure\Project\Traits\Building;
 
-use Illuminate\Database\Eloquent\Collection;
 use Structure\Project\Models\Floor;
 use Structure\Project\Models\Space;
 use Structure\Project\Models\Unit;
@@ -72,7 +71,7 @@ trait HasResidentialUnits
         $this->createFlats($floors);
     }
 
-    public function createVilla(Collection $floors, int $unitId): void
+    public function createVilla(array $floors, int $unitId): void
     {
         // $array_name
         $ground_floor_spaces = ['صالة معيشة', 'مجلس رجال', 'مجلس نساء', 'مطبخ', 'حديقة', 'مصعد', 'درج فيلا', 'درج خدمة', 'مستودع', 'دورة مياه'];
@@ -89,14 +88,14 @@ trait HasResidentialUnits
         }
     }
 
-    public function createFlat(Collection $floors): void
+    public function createFlat(array $floors): void
     {
         foreach ($floors as $floor) {
             $this->flat($floor);
         }
     }
 
-    public function createFlats(Collection $floors): void
+    public function createFlats(array $floors): void
     {
         foreach ($floors as $floor) {
 

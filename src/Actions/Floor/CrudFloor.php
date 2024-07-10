@@ -2,7 +2,6 @@
 
 namespace Structure\Project\Actions\Floor;
 
-use Illuminate\Database\Eloquent\Collection;
 use Structure\Project\Exceptions\Floor\FloorException;
 use Structure\Project\Models\Floor;
 use Structure\Project\Models\FloorTitle;
@@ -62,12 +61,12 @@ trait CrudFloor
         return Floor::where('building_id', $buildingId)->where('title_id', FloorTitle::findBySlug($title)->id)->first();
     }
 
-    public static function getAllFloors(int $buildingId): Collection
+    public static function getAllFloors(int $buildingId): array
     {
         return Floor::with('title')->where('building_id', $buildingId)->get();
     }
 
-    public static function getFloorsExcept(string $title, int $buildingId): Collection
+    public static function getFloorsExcept(string $title, int $buildingId): array
     {
         return Floor::where('building_id', $buildingId)->where('title_id', '!=', FloorTitle::findBySlug($title)->id)->get();
     }

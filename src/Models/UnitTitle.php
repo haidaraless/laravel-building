@@ -17,16 +17,16 @@ class UnitTitle extends Model
 
     public static function villa(): UnitTitle
     {
-        return UnitTitle::whereTitle('Villa')->first();
+        return UnitTitle::where('title', 'Villa')->first();
     }
 
     public static function house(): UnitTitle
     {
-        return UnitTitle::whereTitle('House')->first();
+        return UnitTitle::where('title', 'House')->first();
     }
 
     public static function flat(): UnitTitle
     {
-        return UnitTitle::whereTitle('flat')->first();
+        return UnitTitle::where('title', 'flat')->first();
     }
 }

@@ -12,7 +12,7 @@ trait CrudUnit
     public static function add(string $title, int $buildingId): Unit
     {
         // Get the unit title
-        $unitTitle = UnitTitle::whereTitle($title)->first();
+        $unitTitle = UnitTitle::where('title', $title)->first();
 
         // If unit title is not exists, then throw an exception
         if (is_null($unitTitle)) {

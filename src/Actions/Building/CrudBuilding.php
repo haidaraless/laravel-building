@@ -12,7 +12,7 @@ trait CrudBuilding
     public static function createBuilding(float $land_area, string $title, string $type): Building
     {
         // Get the building title
-        $buildingTitle = BuildingTitle::whereTitle($title)->first();
+        $buildingTitle = BuildingTitle::where('title', $title)->first();
 
         // If building title is not exists, then throw an exception
         if (is_null($buildingTitle)) {
@@ -20,7 +20,7 @@ trait CrudBuilding
         }
 
         // Get the building type
-        $buildingType = BuildingType::whereSlug($type)->first();
+        $buildingType = BuildingType::where('slug', $type)->first();
 
         // If building type is not exists, then throw an exception
         if (is_null($buildingType)) {

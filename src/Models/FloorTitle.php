@@ -23,51 +23,51 @@ class FloorTitle extends Model
 
     public static function findBySlug(string $slug): FloorTitle
     {
-        return FloorTitle::whereSlug($slug)->firstOrFail();
+        return FloorTitle::where('slug', $slug)->firstOrFail();
     }
 
     public static function groundFloor(): FloorTitle
     {
-        return FloorTitle::whereTitle('Ground Floor')->first();
+        return FloorTitle::where('title', 'Ground Floor')->first();
     }
 
     public static function firstFloor(): FloorTitle
     {
-        return FloorTitle::whereTitle('First Floor')->first();
+        return FloorTitle::where('title', 'First Floor')->first();
     }
 
     public static function secondFloor(): FloorTitle
     {
-        return FloorTitle::whereTitle('Second Floor')->first();
+        return FloorTitle::where('title', 'Second Floor')->first();
     }
 
     public static function thirdFloor(): FloorTitle
     {
-        return FloorTitle::whereTitle('Third Floor')->first();
+        return FloorTitle::where('title', 'Third Floor')->first();
     }
 
     public static function fourthFloor(): FloorTitle
     {
-        return FloorTitle::whereTitle('Fourth Floor')->first();
+        return FloorTitle::where('title', 'Fourth Floor')->first();
     }
 
     public static function fifthFloor(): FloorTitle
     {
-        return FloorTitle::whereTitle('Fifth Floor')->first();
+        return FloorTitle::where('title', 'Fifth Floor')->first();
     }
 
     public static function sixthFloor(): FloorTitle
     {
-        return FloorTitle::whereTitle('Sixth Floor')->first();
+        return FloorTitle::where('title', 'Sixth Floor')->first();
     }
 
     public static function seventhFloor(): FloorTitle
     {
-        return FloorTitle::whereTitle('Seventh Floor')->first();
+        return FloorTitle::where('title', 'Seventh Floor')->first();
     }
 
     public static function roofDeck(): FloorTitle
     {
-        return FloorTitle::whereTitle('Roof Deck')->first();
+        return FloorTitle::where('title', 'Roof Deck')->first();
     }
 }

@@ -19,26 +19,26 @@ class BuildingType extends Model
 
     public static function residential(): BuildingType
     {
-        return BuildingType::query()->whereName('Residential')->first();
+        return BuildingType::query()->where('name','Residential')->first();
     }
 
     public static function commercial(): BuildingType
     {
-        return BuildingType::query()->whereName('Commercial')->first();
+        return BuildingType::query()->where('name','Commercial')->first();
     }
 
     public static function managerial(): BuildingType
     {
-        return BuildingType::query()->whereName('Managerial')->first();
+        return BuildingType::query()->where('name','Managerial')->first();
     }
 
     public static function residentialCommercial(): BuildingType
     {
-        return BuildingType::query()->whereName('Residential Commercial')->first();
+        return BuildingType::query()->where('name','Residential Commercial')->first();
     }
 
     public static function commercialManagerial(): BuildingType
     {
-        return BuildingType::query()->whereName('Commercial Managerial')->first();
+        return BuildingType::query()->where('name','Commercial Managerial')->first();
     }
 }

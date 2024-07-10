@@ -11,7 +11,7 @@ trait CrudFloor
     public static function add(string $title, int $buildingId): Floor
     {
         // Get the floor title
-        $floorTitle = FloorTitle::whereTitle($title)->first();
+        $floorTitle = FloorTitle::where('title', $title)->first();
 
         // If floor title is not exists, then throw an exception
         if (is_null($floorTitle)) {

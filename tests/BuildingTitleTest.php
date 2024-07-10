@@ -1,6 +1,5 @@
 <?php
 
-use Structure\Project\Exceptions\Building\BuildingException;
 use Structure\Project\Models\BuildingTitle;
 
 it('has a correct title', function () {

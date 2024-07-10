@@ -19,7 +19,7 @@ trait CrudFloor
         }
 
         // If the floor already exists, then throw an exception
-        if (Floor::whereBuildingId($buildingId)->whereTitleId($floorTitle->id)->exists()) {
+        if (Floor::where('building_id', $buildingId)->where('title_id', $floorTitle->id)->exists()) {
             throw FloorException::floorExists();
         }
 
@@ -58,16 +58,16 @@ trait CrudFloor
 
     public static function findByTitle(int $buildingId, string $title): ?Floor
     {
-        return Floor::whereBuildingId($buildingId)->whereTitleId(FloorTitle::findBySlug($title)->id)->first();
+        return Floor::where('building_id', $buildingId)->where('title_id', FloorTitle::findBySlug($title)->id)->first();
     }
 
     public static function getAllFloors(int $buildingId): array
     {
-        return Floor::with('title')->whereBuildingId($buildingId)->get();
+        return Floor::with('title')->where('building_id', $buildingId)->get();
     }
 
     public static function getFloorsExcept(int $buildingId, string $title)
     {
-        return Floor::whereBuildingId($buildingId)->where('title_id', '!=', FloorTitle::findBySlug($title)->id)->get();
+        return Floor::where('building_id', $buildingId)->where('title_id', '!=', FloorTitle::findBySlug($title)->id)->get();
     }
 }

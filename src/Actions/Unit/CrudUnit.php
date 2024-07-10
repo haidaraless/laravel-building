@@ -14,9 +14,6 @@ trait CrudUnit
         // Get the unit title
         $unitTitle = UnitTitle::where('title', $title)->first();
 
-        // Get count of exists units
-        $count = Unit::where('building_id', $buildingId)->count();
-
         // If unit title is not exists, then throw an exception
         if (is_null($unitTitle)) {
             throw UnitException::titleNotExist();
@@ -31,7 +28,7 @@ trait CrudUnit
         return Unit::create([
             'building_id' => $buildingId,
             'title_id' => $unitTitle->id,
-            'number' => $count + 1,
+            'number' => Unit::getUnitNumber($buildingId),
         ]);
     }
 

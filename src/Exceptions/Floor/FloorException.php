@@ -17,7 +17,7 @@ final class FloorException extends BaseException
         return new FloorException('The floor you looking for is not exist!');
     }
 
-    public static function titleNotExist(): UnitException
+    public static function titleNotExist(): FloorException
     {
         return new FloorException('This floor title is not exists!');
     }

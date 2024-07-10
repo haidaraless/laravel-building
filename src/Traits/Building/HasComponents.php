@@ -4,7 +4,7 @@ namespace Structure\Project\Traits\Building;
 
 use Illuminate\Support\Str;
 
-trait HasBuildingComponents
+trait HasComponents
 {
     public function prepareBuildingComponents(): void
     {

@@ -36,6 +36,6 @@ class Unit extends Model
 
     public static function getUnitNumber(int $buildingId): int
     {
-        return Unit::whereBuildingId($buildingId)->count() + 1;
+        return Unit::where('building_id', $buildingId)->count() + 1;
     }
 }

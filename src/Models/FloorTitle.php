@@ -9,7 +9,7 @@ class FloorTitle extends Model
 {
     use Sushi;
 
-    protected $rows = [
+    protected array $rows = [
         ['id' => 1, 'title' => 'Ground Floor', 'slug' => 'ground-floor', 'abbr' => 'GF', 'order' => 1],
         ['id' => 2, 'title' => 'First Floor', 'slug' => 'first-floor', 'abbr' => 'FF', 'order' => 2],
         ['id' => 3, 'title' => 'Second Floor', 'slug' => 'second-floor', 'abbr' => 'SF', 'order' => 3],

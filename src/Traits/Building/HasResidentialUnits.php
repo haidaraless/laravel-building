@@ -26,7 +26,7 @@ trait HasResidentialUnits
     {
         $this->villa();
 
-        $floors = Floor::getFloorsExcept($this->id, 'ground-floor');
+        $floors = Floor::getFloorsExcept('ground-floor', $this->id);
 
         $this->createFlat($floors);
     }
@@ -46,7 +46,7 @@ trait HasResidentialUnits
     {
         $this->house();
 
-        $floors = Floor::getFloorsExcept($this->id, 'ground-floor');
+        $floors = Floor::getFloorsExcept('ground-floor', $this->id);
 
         $this->createFlats($floors);
     }
@@ -55,7 +55,7 @@ trait HasResidentialUnits
     {
         $ground_floor_spaces = ['صالة معيشة', 'مجلس رجال', 'مجلس نساء', 'مطبخ', 'حديقة', 'مستودع', 'دورة مياه', 'غرفة النوم الرئيسية', 'غرفة نوم', 'غرفة نوم', 'حمام مشترك', 'درج الشقق'];
 
-        $floor = Floor::findByTitle($this->id, 'ground-floor');
+        $floor = Floor::findByTitle('ground-floor', $this->id);
 
         $unit = Unit::add('House', $this->id);
 

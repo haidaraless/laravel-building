@@ -10,7 +10,7 @@ trait CrudSpace
 {
     public static function add(string $title, int $typeId, int $floorId, int $unitId): void
     {
-        $titleId = SpaceTitle::findByNameOfCreate($title, $typeId)->id;
+        $titleId = SpaceTitle::findByNameOrCreate($title, $typeId)->id;
 
         Space::create([
             'title_id' => $titleId,

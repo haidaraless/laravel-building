@@ -14,9 +14,9 @@ class SpaceTitle extends Model
         return $this->belongsTo(BuildingType::class, 'type_id');
     }
 
-    public static function findByNameOfCreate(string $name, int $typeId): SpaceTitle
+    public static function findByNameOrCreate(string $name, int $typeId): SpaceTitle
     {
-        $title = SpaceTitle::whereName($name)->whereTypeId($typeId)->first();
+        $title = SpaceTitle::where('name', $name)->where('type_id', $typeId)->first();
 
         if (is_null($title)) {
             $title = SpaceTitle::create([

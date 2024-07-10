@@ -56,7 +56,7 @@ trait CrudFloor
         return $floor;
     }
 
-    public static function findByTitle(int $buildingId, string $title): ?Floor
+    public static function findByTitle(string $title, int $buildingId): ?Floor
     {
         return Floor::where('building_id', $buildingId)->where('title_id', FloorTitle::findBySlug($title)->id)->first();
     }
@@ -66,7 +66,7 @@ trait CrudFloor
         return Floor::with('title')->where('building_id', $buildingId)->get();
     }
 
-    public static function getFloorsExcept(int $buildingId, string $title)
+    public static function getFloorsExcept(string $title, int $buildingId): array
     {
         return Floor::where('building_id', $buildingId)->where('title_id', '!=', FloorTitle::findBySlug($title)->id)->get();
     }

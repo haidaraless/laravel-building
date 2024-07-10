@@ -10,7 +10,7 @@ class BuildingTitle extends Model
 {
     use Sushi;
 
-    protected $rows = [
+    protected array $rows = [
         ['id' => 1, 'title' => 'Private Villa', 'slug' => 'private-villa', 'type' => 'residential'],
         ['id' => 2, 'title' => 'Villa and Flats', 'slug' => 'villa-and-flats', 'type' => 'residential'],
         ['id' => 3, 'title' => 'House and Flats', 'slug' => 'house-and-flats', 'type' => 'residential'],

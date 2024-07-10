@@ -9,7 +9,7 @@ class BuildingType extends Model
 {
     use Sushi;
 
-    protected $rows = [
+    protected array $rows = [
         ['id' => 1, 'name' => 'Residential', 'slug' => 'residential'],
         ['id' => 2, 'name' => 'Commercial', 'slug' => 'commercial'],
         ['id' => 3, 'name' => 'Managerial', 'slug' => 'managerial'],

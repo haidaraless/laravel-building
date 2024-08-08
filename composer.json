@@ -1,6 +1,6 @@
 {
     "name": "structure/laravel-building",
-    "description": "A package to handle project and its  components in construction field creation.",
+    "description": "A package to handle project and its components in construction field creation.",
     "keywords": [
         "structure",
         "laravel",
@@ -73,7 +73,7 @@
     "extra": {
         "laravel": {
             "providers": [
-              "BuildingServiceProvider"
+              "Structure\\Project\\BuildingServiceProvider"
             ],
             "aliases": {
                 "Project": "Building"

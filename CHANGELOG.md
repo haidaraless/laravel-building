@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-building` will be documented in this file.
 
+## 1.0.6 - 2024-08-08
+
+Fix returned types.
+
 ## 1.0.5 - 2024-08-08
 
 Ensure created building has Ground, First and Roof floors by default.

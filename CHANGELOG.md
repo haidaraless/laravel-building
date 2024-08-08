@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-building` will be documented in this file.
 
+## 1.0.4 - 2024-08-08
+
+Change type of returning floors, units and spaces into Collection instead of array.
+
 ## 1.0.3 - 2024-08-08
 
 Fix ServiceProvider path in composer.json.

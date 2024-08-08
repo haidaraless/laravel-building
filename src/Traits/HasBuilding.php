@@ -5,7 +5,6 @@ namespace Structure\Project\Traits;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Structure\Project\Models\Building;
 use Structure\Project\Models\Floor;
 use Structure\Project\Models\Space;

@@ -6,6 +6,7 @@ use Structure\Project\Exceptions\Building\BuildingException;
 use Structure\Project\Models\Building;
 use Structure\Project\Models\BuildingTitle;
 use Structure\Project\Models\BuildingType;
+use Structure\Project\Models\Floor;
 
 trait CrudBuilding
 {
@@ -32,6 +33,11 @@ trait CrudBuilding
             'title_id' => $buildingTitle->id,
             'type_id' => $buildingType->id,
         ]);
+
+        // create floors
+        Floor::add('Ground Floor', $building->id);
+        Floor::add('First Floor', $building->id);
+        Floor::add('Roof Deck', $building->id);
 
         $building->prepareBuildingComponents();
 

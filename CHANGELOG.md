@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-building` will be documented in this file.
 
+## 1.0.7 - 2024-08-08
+
+Some code fixes.
+
 ## 1.0.6 - 2024-08-08
 
 Fix returned types.

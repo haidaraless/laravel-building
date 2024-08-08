@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-building` will be documented in this file.
 
+## 1.0.8 - 2024-08-08
+
+Add some helper functions to get title of building, floor, unit and space.
+
 ## 1.0.7 - 2024-08-08
 
 Some code fixes.

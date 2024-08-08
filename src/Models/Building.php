@@ -24,8 +24,8 @@ class Building extends Model implements InteractsWithComponents, InteractsWithRe
     use HasComponents;
     use HasManagerialUnits;
     use HasResidentialUnits;
-    use HasType;
     use HasTitle;
+    use HasType;
 
     protected $guarded = [];
 

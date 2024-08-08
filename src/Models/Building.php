@@ -29,6 +29,10 @@ class Building extends Model implements InteractsWithComponents, InteractsWithRe
 
     protected $guarded = [];
 
+    protected $casts = [
+        'land_area' => 'float',
+    ];
+
     public function title(): BelongsTo
     {
         return $this->belongsTo(BuildingTitle::class, 'title_id');

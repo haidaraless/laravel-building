@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-building` will be documented in this file.
 
+## 1.0.3 - 2024-08-08
+
+Fix ServiceProvider path in composer.json.
+
 ## 1.0.2 - 2024-07-11
 
 Allow model to has building

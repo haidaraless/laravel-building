@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Structure\Project\Actions\Unit\CrudUnit;
+use Structure\Project\Traits\Unit\HasTitle;
 
 class Unit extends Model
 {
     use CrudUnit;
+    use HasTitle;
 
     protected $guarded = [];
 

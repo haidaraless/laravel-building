@@ -5,10 +5,12 @@ namespace Structure\Project\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Structure\Project\Actions\Space\CrudSpace;
+use Structure\Project\Traits\Space\HasName;
 
 class Space extends Model
 {
     use CrudSpace;
+    use HasName;
 
     protected $guarded = [];
 

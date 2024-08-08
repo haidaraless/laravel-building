@@ -14,6 +14,7 @@ use Structure\Project\Traits\Building\HasCommercialUnits;
 use Structure\Project\Traits\Building\HasComponents;
 use Structure\Project\Traits\Building\HasManagerialUnits;
 use Structure\Project\Traits\Building\HasResidentialUnits;
+use Structure\Project\Traits\Building\HasTitle;
 use Structure\Project\Traits\Building\HasType;
 
 class Building extends Model implements InteractsWithComponents, InteractsWithResidentialUnits, InteractsWithType
@@ -24,6 +25,7 @@ class Building extends Model implements InteractsWithComponents, InteractsWithRe
     use HasManagerialUnits;
     use HasResidentialUnits;
     use HasType;
+    use HasTitle;
 
     protected $guarded = [];
 

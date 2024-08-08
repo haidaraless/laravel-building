@@ -9,7 +9,7 @@ use Structure\Project\Models\BuildingType;
 
 trait CrudBuilding
 {
-    public static function createBuilding(float $land_area, string $title, string $type): Building
+    public static function createBuilding(float $land_area, string $title, string $type_slug): Building
     {
         // Get the building title
         $buildingTitle = BuildingTitle::where('title', $title)->first();
@@ -20,7 +20,7 @@ trait CrudBuilding
         }
 
         // Get the building type
-        $buildingType = BuildingType::where('slug', $type)->first();
+        $buildingType = BuildingType::where('slug', $type_slug)->first();
 
         // If building type is not exists, then throw an exception
         if (is_null($buildingType)) {

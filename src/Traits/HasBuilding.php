@@ -4,6 +4,7 @@ namespace Structure\Project\Traits;
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Structure\Project\Models\Building;
 use Structure\Project\Models\Floor;
@@ -12,9 +13,9 @@ use Structure\Project\Models\Unit;
 
 trait HasBuilding
 {
-    public function building(): HasOne
+    public function building(): BelongsTo
     {
-        return Model::hasOne(Building::class);
+        return Model::belongsTo(Building::class);
     }
 
     public function getAllFloors(int $buildingId): Collection
@@ -25,6 +26,11 @@ trait HasBuilding
     public function getAllUnits(int $buildingId): Collection
     {
         return Unit::where('building_id', $buildingId)->get();
+    }
+
+    public function getAllSpacesOf(int $unitId, int $floorId): Collection
+    {
+        return Space::whereUnitId($unitId)->whereFloorId($floorId)->get();
     }
 
     public function getAllSpaces(int $buildingId): Collection

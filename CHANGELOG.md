@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-building` will be documented in this file.
 
+## 1.0.10 - 2024-08-08
+
+Add casting type (float) to land area.
+
 ## 1.0.9 - 2024-08-08
 
 Fix model relationship with building.

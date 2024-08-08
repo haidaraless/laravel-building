@@ -2,6 +2,7 @@
 
 namespace Structure\Project\Interfaces\Building;
 
+use Illuminate\Database\Eloquent\Collection;
 use Structure\Project\Models\Floor;
 
 interface InteractsWithResidentialUnits
@@ -20,11 +21,11 @@ interface InteractsWithResidentialUnits
 
     public function flats(): void;
 
-    public function createVilla(array $floors, int $unitId): void;
+    public function createVilla(Collection $floors, int $unitId): void;
 
-    public function createFlat(array $floors): void;
+    public function createFlat(Collection $floors): void;
 
-    public function createFlats(array $floors): void;
+    public function createFlats(Collection $floors): void;
 
     public function createSpaces(array $spaces, int $typeId, int $floorId, int $unitId): void;
 }
